@@ -1,4 +1,4 @@
-from Node import Czynnosc, Zdarzenie
+from Node import Czynnosc, Zdarzenie, clear_folder
 
 ilosc_czynnosci = 18
 ilosc_zdarzen = 10
@@ -6,9 +6,11 @@ ilosc_zdarzen = 10
 # Define events
 zdarzenia = []
 zdarzenia.append(Zdarzenie(id="0"))
-zdarzenia.append(Zdarzenie(id="1", ti=0))  # Start event
+zdarzenia.append(Zdarzenie(id="1", ti=0))  # Start event - indeksowanie od 1 do N
 for i in range(2, ilosc_zdarzen + 1):
     zdarzenia.append(Zdarzenie(id=str(i)))
+
+clear_folder("nodes")
 
 # Define activities and append them to the array
 czynnosci = []
@@ -51,13 +53,10 @@ for zdarzenie in zdarzenia:
     if zdarzenie.float == 0:
         sciezka_krytyczna.append(zdarzenie)
 
-# Print critical path activities
-
-
 for zdarzenie in zdarzenia:
     if zdarzenie.id != "0":
+        zdarzenie.draw()
         print(zdarzenie)
-
 
 print("Sciezka krytyczna:")
 for zdarzenie in sciezka_krytyczna:
