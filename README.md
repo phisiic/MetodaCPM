@@ -30,7 +30,7 @@ And the script will generate this sort of CPM Diagram:
 
  ![image](https://github.com/phisiic/MetodaCPM/assets/63189115/75af5f6f-c470-4b97-80b4-af9c25f36cf1)
 
-##To run
+## To run
 ***
 Activate a virtual environment and use the command
 *python main.py <name_of_csv_file>*
