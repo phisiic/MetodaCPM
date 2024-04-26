@@ -1,4 +1,4 @@
-﻿# Metoda CPM
+﻿# CPM Method
 Critical Path Method generation program, written in Python with matplotlib and diagrams. Python Django used for the web app to make it interactive.
 
 Example usage:
