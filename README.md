@@ -33,5 +33,5 @@ And the script will generate this sort of CPM Diagram:
 ##To run
 ***
 Activate a virtual environment and use the command
-* python main.py <name_of_csv_file> *
+*python main.py <name_of_csv_file>*
 
