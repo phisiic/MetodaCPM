@@ -1,23 +1,35 @@
-from diagrams import Diagram, Cluster
+import os
+from diagrams import Diagram, Edge
 from diagrams.custom import Custom
-from diagrams.onprem.database import Mysql
 
-def create_diagram():
+
+def create_diagram(zdarzenia_poprzedzajace_lista, zdarzenia, sciezka_krytyczna):
     # Specify the file path and format directly in the Diagram constructor
-    with Diagram("Custom Node Diagram", show=False, filename="./custom_node_diagram.png") as diag:
-        with Cluster("Nodes"):
-            # Add custom nodes with images
-            node_1 = Custom("Node 1", "./nodes/node_1.png")
-            node_2 = Custom("Node 2", "./nodes/node_2.png")
-            node_3 = Custom("Node 3", "./nodes/node_3.png")
+    with Diagram("CPM Diagram", show=False, filename="CPM_diagram",
+                 graph_attr={'size': '20,20', 'pad': '0.1'}, ) as diag:
+        # Dictionary to store nodes
+        nodes = {}
 
-            # Define the relationships between nodes
-            node_1 >> node_2
-            node_1 >> node_3
+        # Create nodes
+        for zdarzenie in zdarzenia:
+            if zdarzenie.id != "0":
+                node_name = f"Node {zdarzenie.id}"
+                node_image_path = os.path.join("nodes", f"node_{zdarzenie.id}.png")
+                node = Custom(node_name, node_image_path)
+                nodes[zdarzenie.id] = node
 
-            # Add regular nodes if needed
-            db = Mysql("Database")
-            node_2 >> db
+        # Define relationships between nodes
+        for zdarzenie in zdarzenia:
+            if zdarzenie.id != "0":
+                node = nodes[zdarzenie.id]
+                predecessors = zdarzenia_poprzedzajace_lista.get(zdarzenie.id, [])
+                for predecessor in predecessors:
+                    predecessor_id = predecessor.id
+                    predecessor_node = nodes[predecessor_id]
 
-# Call the function to create the diagram
-create_diagram()
+                    # Check if the edge belongs to the critical path
+                    if zdarzenie in sciezka_krytyczna and predecessor in sciezka_krytyczna:
+                        edge = Edge(color="red", style="bold", arrowhead="vee")
+                        predecessor_node >> edge >> node
+                    else:
+                        predecessor_node >> node

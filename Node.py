@@ -60,7 +60,7 @@ class Zdarzenie:  # kolka
         ax.set_xlim(0, 1)
         ax.set_ylim(0, 1)
         ax.axis('off')
-        plt.savefig(filepath, bbox_inches='tight', pad_inches=0)
+        plt.savefig(filepath, bbox_inches='tight', pad_inches=-0.33)
         plt.close()
 
 
