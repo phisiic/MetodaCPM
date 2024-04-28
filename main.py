@@ -1,7 +1,7 @@
 import sys
 from Node import Czynnosc, Zdarzenie, clear_folder
-from CPM import CPM
 from csv_read import read_csv
+from CPMclass import CPM
 
 def main():
     # Check if the correct number of arguments is provided
@@ -19,7 +19,7 @@ def main():
     ilosc_zdarzen, zdarzenia, ilosc_czynnosci, czynnosci = read_csv(csv_file_path)
 
     # Run the CPM algorithm with the provided data
-    cpm_diagram = CPM(ilosc_zdarzen, zdarzenia, ilosc_czynnosci, czynnosci)
+    CPM(ilosc_zdarzen, zdarzenia, ilosc_czynnosci, czynnosci, "Critical Path Method Diagram")
 
 if __name__ == "__main__":
     main()

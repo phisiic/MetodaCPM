@@ -1,0 +1,14 @@
+<!-- enter_activities.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="mb-4 text-primary">Add Activity</h1>
+    <div id="activity-forms">
+        {% include 'partials/form.html' %}
+    </div>
+
+    <div class="my-4 mx-3">
+        <button type="button" class="btn btn-outline-secondary me-2">+ Add Activity</button>
+    </div>
+
+{% endblock %}

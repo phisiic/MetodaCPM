@@ -3,9 +3,9 @@ from diagrams import Diagram, Edge
 from diagrams.custom import Custom
 
 
-def create_diagram(zdarzenia_poprzedzajace_lista, zdarzenia, sciezka_krytyczna):
+def create_diagram(zdarzenia_poprzedzajace_lista, zdarzenia, sciezka_krytyczna, diagram_name):
     # Specify the file path and format directly in the Diagram constructor
-    with Diagram("CPM Diagram", show=False, filename="CPM_diagram",
+    with Diagram(diagram_name, show=False, filename="CPM_diagram",
                  graph_attr={'size': '20,20', 'pad': '0.1'}, ) as diag:
         # Dictionary to store nodes
         nodes = {}

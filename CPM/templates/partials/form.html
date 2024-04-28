@@ -1,0 +1,24 @@
+<div class="container">
+    <form>
+        <div class="row">
+            <div class="col-12 col-md-3 mb-3">
+                <div class="d-flex">
+                    <label for="{{ form.name.id_for_label }}" class="me-2">{{ form.name.label }}</label>
+                    {{ form.name }}
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <label for="{{ form.duration.id_for_label }}">{{ form.duration.label }}</label>
+                {{ form.duration }}
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <label for="{{ form.before.id_for_label }}">{{ form.before.label }}</label>
+                {{ form.before }}
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <label for="{{ form.after.id_for_label }}">{{ form.after.label }}</label>
+                {{ form.after }}
+            </div>
+        </div>
+    </form>
+</div>
