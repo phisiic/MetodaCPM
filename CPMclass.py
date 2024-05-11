@@ -37,9 +37,9 @@ class CPM:
                 zdarzenie.draw()
                 # print(zdarzenie)
 
-        # print("Sciezka krytyczna:")
-        # for zdarzenie in sciezka_krytyczna:
-        #     print(zdarzenie.id)
+        print("Sciezka krytyczna:")
+        for zdarzenie in sciezka_krytyczna:
+            print(zdarzenie.id)
 
         # Define a dictionary to store events leading into each event
         events_leading_to = {z.id: [] for z in zdarzenia}

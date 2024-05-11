@@ -1,24 +1,28 @@
 <div class="container">
-    <form>
+    <form hx-post="{% url 'create-activity' %}" hx-swap="beforeend" hx-on="htmx:afterRequest: this.remove()"
+    hx-trigger="click from:#submit-all">
         <div class="row">
-            <div class="col-12 col-md-3 mb-3">
-                <div class="d-flex">
+            <div class="col-5 col-md-3 mb-3">
                     <label for="{{ form.name.id_for_label }}" class="me-2">{{ form.name.label }}</label>
                     {{ form.name }}
-                </div>
             </div>
-            <div class="col-12 col-md-3 mb-3">
-                <label for="{{ form.duration.id_for_label }}">{{ form.duration.label }}</label>
+            <div class="col">
+                <label style="margin-top: 10px;" for="{{ form.duration.id_for_label }}">{{ form.duration.label }}</label>
                 {{ form.duration }}
             </div>
-            <div class="col-12 col-md-3 mb-3">
-                <label for="{{ form.before.id_for_label }}">{{ form.before.label }}</label>
+            <div class="col">
+                <label style="margin-top: 10px;" for="{{ form.before.id_for_label }}">{{ form.before.label }}</label>
                 {{ form.before }}
             </div>
-            <div class="col-12 col-md-3 mb-3">
-                <label for="{{ form.after.id_for_label }}">{{ form.after.label }}</label>
+            <div class="col">
+                <label style="margin-top: 10px;" for="{{ form.after.id_for_label }}">{{ form.after.label }}</label>
                 {{ form.after }}
             </div>
+            <div class="col" style="margin-top: 10px;">
+                <button type="button" class="btn btn-danger" style="margin-top: 18px;"
+                hx-on="click: this.closest('form').remove()">Cancel</button>
+            </div>
+
         </div>
     </form>
 </div>

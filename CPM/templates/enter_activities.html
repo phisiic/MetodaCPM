@@ -8,7 +8,29 @@
     </div>
 
     <div class="my-4 mx-3">
-        <button type="button" class="btn btn-outline-secondary me-2">+ Add Activity</button>
+        <button type="button" class="btn btn-outline-secondary me-2"
+                hx-get="{% url 'create-activity' %}"
+                hx-target="#activity-forms"
+                hx-swap="beforeend">+ Add Activity</button>
+        <button type="button" class="btn btn-primary" id="submit-all">Submit all</button>
+        <button type="button" class="btn btn-warning" id="generate-diagram"
+                hx-get="{% url 'generate-diagram' %}"
+                hx-target="#diagram-info"
+                hx-swap="outerHTML">Generate Diagram</button>
+        <a href="{% url 'upload' %}" type="button" class="btn btn-success" id="generate-csv">Upload CSV</a>
     </div>
+
+    <ul id="activity-list">
+        {% for activity in activities %}
+            {% include 'partials/activity.html' %}
+        {% endfor %}
+    </ul>
+
+    <ul id="diagram-info">
+        <p>Total number of activities: {{ activity_count }}</p>
+        <p>Total number of events: {{ event_count }}</p>
+    </ul>
+
+    <div id="csv"></div>
 
 {% endblock %}

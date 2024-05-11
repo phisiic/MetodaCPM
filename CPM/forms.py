@@ -6,7 +6,6 @@ class CPMForm(forms.Form):
     no_events = forms.IntegerField(label='No. of events', min_value=2)
     file_name = forms.CharField(label='File name')
 
-
 class ActivityForm(forms.ModelForm):
     class Meta:
         model = Czynnosc
@@ -14,4 +13,7 @@ class ActivityForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'})
         }
+
+class CsvForm(forms.Form):
+    file = forms.FileField(label='File')
 
