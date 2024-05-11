@@ -18,6 +18,7 @@ Django backend combined with HTMX to make it interactive. The webapp allows the 
 ![image](https://github.com/phisiic/MetodaCPM/assets/63189115/4e5d4014-4b48-42a1-b9c4-9fd1c159f0c1)
 
 **Uploading CSV file:**
+
 ![image](https://github.com/phisiic/MetodaCPM/assets/63189115/cc8c4dc9-b352-4eca-b9bb-8af0acaab460)
 
 ## Console CSV version
